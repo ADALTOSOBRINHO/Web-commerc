@@ -1,0 +1,837 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width-device-width, initial-scale=1.0">
+      <!--- Referencias Bootstrap --->
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+     <!--- CSS --->
+     <style type="text/css">
+		 body
+		 {
+			 background-image: url(https://image.freepik.com/fotos-gratis/quadro-vazio_53876-30426.jpg);
+		 }
+		 .ico-burguer
+		 {
+			 
+			 margin-left: -90px;
+		 }
+		 h2, h3, h5
+		 {
+			 text-align: center;
+			 color: white;
+		 }
+		 p
+		 {
+			 text-align: center;
+			 font-size: 1em;
+			 padding: 5px;
+			 margin: 5px;
+		 }
+		 .preco
+		 {
+			 color: yellow;
+			 font-size: 1.8em;
+			 font-weight: bold;
+			 padding: 0;
+			 margin-left: -10px;
+			 margin-top: auto;
+			 text-shadow: 2px 2px 3px black;
+		 }
+		 .quantidade
+		 {
+			 font-size: 3em;
+			 text-shadow: 2px 2px 5px white;
+		 }
+		 .resumo
+		 {
+			 background-color: rgba(255,255,255,.5);
+			 box-shadow: 3px 3px 10px white;
+			 margin: 10px;
+			 min-height: 3.5em;
+			 font-size: 2.2em;
+			 overflow: hidden
+		 }
+		 .btn-block
+		 {
+			 font-size: 2em;
+		 }
+		 .botao
+		 {
+			min-width: 50px;
+			margin-left: -20px;
+		 }
+		 .burguer
+		 {
+			 margin-top: 10px;
+			 border-top: 2px solid white;
+			 border-bottom: 2px solid white;
+		 }
+		 .produto p
+		 {
+			 background-color: rgba(255,255,255,.8);
+			 padding: 10px;
+			 border-top-left-radius: 5%;
+			 border-bottom-right-radius: 10%;
+		 }
+		 .creditos
+		 {
+			 background-color: dimgray;
+			 
+		 }
+		 .creditos a
+		 {
+			 text-decoration: none;
+			 color: white;
+		 }
+		 .combo
+		 {
+			 border-top: solid 3px black;
+			 border-bottom: solid 3px black;
+			 background-color:darkkhaki;
+			 margin-top: 10px;
+		 }
+		 .mate
+		 {
+			 margin-top: 10px;
+			 border: solid 3px black;
+			 background-image: url('https://cdn.shopify.com/s/files/1/0305/4075/9177/products/Papel-de-Parede-Adesivo-Xadrez-Branco-e-Preto-050914_5db5ba4d-ee59-44ce-b0da-b9eb581e3891.jpg?v=1584653885');
+		 }
+		 .especial-mate
+		 {
+			 background-color: rgba(255,255,255,.9);
+		 }
+		 .especial-mate p
+		 {
+			 padding: 10px;
+		 }
+		 .especial-mate h3
+		 {
+			 color: yellow;
+			 text-shadow: 2px 2px 2px black;
+			  font-size: 4em;
+		 }
+		 .especial
+		 {
+			 color: yellow;
+			 text-shadow: 2px 2px 2px black;
+			 font-size: 4em;
+			 padding: 10px;
+			 margin-left: -20px;
+		 }
+		 .pedir
+		 {
+			 background-color: yellow;
+			 border-radius: 50%;
+			 overflow: hidden;
+			 height: 100px;
+			 display: flexbox;
+
+		 }
+		 
+     </style>
+	</head>
+	<body>
+		<div class="container">
+            <div id="menu-rodape" class="fixed-bottom">
+                <div class="row">
+                    <div class="col-3 bg-dark">
+                        
+                    </div>
+                    <div class="col btn btn-success">
+						<div class="pedir">
+							Pedir
+						</div>
+                    </div>
+                    <div class="col-3 bg-dark">
+                        
+                    </div>
+                </div>
+            </div>
+		<!--- Menu --->
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> 
+      		<a class="navbar-brand" href="#carouselExampleCaptions">Tabuleiro Burguer</a>
+      		<a class="btn btn-primary" href="#resumo" onclick="resumo()">Ver pedido</a>
+      		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        		<span class="navbar-toggler-icon"></span>
+      		</button>
+			<div class="navbar-collapse collapse" id="navbarCollapse" style="">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#burguer">Burguers</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#combos">Combos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#especiais">Especiais</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#bebidas">Bebidas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#batata">Batata</a>
+					</li>
+				</ul>
+			</div>
+			</nav>
+			<!--- Destaques --->
+			<br><br><br>
+			<h2>Burguers</h2>
+			<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+		<div class="burguer" id="burguer">
+			<div class="row">
+						<div class="col-1">
+							<img class="ico-burguer" src="https://img.icons8.com/offices/180/000000/pawn.png">
+						</div>
+					<div class="produto col">
+						<h3>Peão</h3>
+						<p>
+							Pão de hambúrguer, maionese tradicional, alface, tomate, blend bovino (140g), molho parmesão, queijo muçarela
+						</p>
+						<div id="preco" class="preco btn-block">
+							R$ 12,00
+						</div>
+					</div>
+				<div class="col-2">
+					<button class=" botao btn btn-success btn-lg btn-block" onclick="acrecentar_peao()">+</button>
+					<div class="quantidade"><Label id="qt_peao">0</Label></div>
+					<button class="botao btn btn-success btn-lg btn-block" onclick="diminuir_peao()">-</button>
+				</div>
+				<div class="col-1">
+				</div>
+			</div>
+		</div>
+    </div>
+    <div class="carousel-item">
+    	<div class="burguer" id="burguer">
+     		<div class="row">
+     			<div class="col-1">
+     			   	<img class="ico-burguer" src="https://img.icons8.com/offices/180/000000/rook.png">
+     			</div>
+     			<div class="produto col">
+     				<h3>Torre</h3>
+     				<p>
+     					Pão de brioche, maionese picante, tomate, blend suíno (140g), queijo muçarela, molho  BBQ do chef e bacon. 
+					</p>
+    			    <div id="preco" class="preco btn-block">
+    			    	R$ 16,00
+    			    </div>
+     			</div>
+     			<div class="col-2">
+     				<button class=" botao btn btn-success btn-lg btn-block" onclick="acrecentar_torre()">+</button>
+					<div class="quantidade"><Label id="qt_torre">0</Label></div>
+     				<button class="botao btn btn-success btn-lg btn-block" onclick="diminuir_torre()">-</button>
+     			</div>
+     			<div class="col-1">
+     					
+     			</div>
+     		</div>
+     	</div>
+    </div>
+    <div class="carousel-item">
+    	<div class="burguer" id="burguer">
+     		<div class="row">
+     			<div class="col-1">
+     			   <img class="ico-burguer" src="https://img.icons8.com/offices/180/000000/knight.png">
+     			</div>
+     			<div class="produto col-7">
+     				<h3>Cavalo</h3>
+     				<p>
+     					Pão de brioche, maionese Artesanal, alface, tomate, blend bovino  recheado com  muçarela(140g), ovo, bacon,  molho BBQ do chef.
+					</p>
+     			</div>
+     			<div class="col-2">
+     				<button class=" botao btn btn-success btn-lg btn-block" onclick="acrecentar_cavalo()">+</button>
+					<div class="quantidade"><Label id="qt_cavalo">0</Label></div>
+     				<button class="botao btn btn-success btn-lg btn-block" onclick="diminuir_cavalo()">-</button>
+     			</div>
+     			<div id="preco" class="preco col-2">
+     					R$ 17,00
+				</div>
+     		</div>
+     	</div>
+    </div>
+    <div class="carousel-item">
+    	<div class="burguer" id="burguer">
+     		<div class="row">
+     			<div class="col-1">
+     			 <img class="ico-burguer" src="https://img.icons8.com/offices/180/000000/bishop.png">
+     			</div>
+     			<div class="produto col-7">
+     				<h3>Bispo</h3>
+     				<p>
+     					Pão de brioche, maionese de alho, Alface, tomate, cebola caramelizada blend de costela (140g), molho 4 queijos e queijo prato.
+					</p>
+     			</div>
+     			<div class="col-2">
+     				<button class=" botao btn btn-success btn-lg btn-block" onclick="acrecentar_bispo()">+</button>
+					<div class="quantidade"><Label id="qt_bispo">0</Label></div>
+     				<button class="botao btn btn-success btn-lg btn-block" onclick="diminuir_bispo()">-</button>
+     			</div>
+     			<div id="preco" class="preco col-2">
+     				R$ 19,00
+     			</div>
+     		</div>
+     	</div>
+    </div>
+    <div class="carousel-item">
+    	<div class="burguer" id="burguer">
+     		<div class="row">
+     			   <div class="col-1">
+     			   	<img class="ico-burguer" src="https://img.icons8.com/offices/180/000000/queen.png">
+     			   </div>
+     				<div class="produto col-7">
+     					<h3>Rainha</h3>
+     					<p>
+     						Pão de hambúrguer, maionese especial, mix de folha (alface e rúcula), tomate, cebola roxa, picles, blend bovino (140g), molho 4queijos, queijo prato e bacon.
+						</p>
+     				</div>
+     			<div class="col-2">
+     				<button class=" botao btn btn-success btn-lg btn-block" onclick="acrecentar_rainha()">+</button>
+					<div class="quantidade"><Label id="qt_rainha">0</Label></div>
+     				<button class="botao btn btn-success btn-lg btn-block" onclick="diminuir_rainha()">-</button>
+     			</div>
+     			<div id="preco" class="preco col-2">
+     					R$ 20,00
+     			</div>
+     		</div>
+     	</div>
+    </div>
+    <div class="carousel-item">
+    	<div class="burguer" id="burguer">
+     		<div class="row">
+     			   <div class="col-1">
+     			   	<img class="ico-burguer" src="https://img.icons8.com/offices/180/000000/king.png">
+     			   </div>
+     				<div class="produto col-7">
+     					<h3>Rei</h3>
+     					<p>
+     						Pão de brioche, maionese especial, mix de folhas (alface e rúcula), tomate, cebola  caramelizada, bacon, blend bovino (140g), molho 4queijos e queijo muçarela.
+						</p>
+     				</div>
+     			<div class="col-2">
+     				<button class=" botao btn btn-success btn-lg btn-block" onclick="acrecentar_rei()">+</button>
+					<div class="quantidade"><Label id="qt_rei">0</Label></div>
+     				<button class="botao btn btn-success btn-lg btn-block" onclick="diminuir_rei()">-</button>
+     			</div>
+     			<div id="preco" class="preco col-2">
+     					R$ 20,00
+				</div>
+     		</div>
+     	</div>
+    </div>
+  </div>
+  </div>
+</div>
+     <!--- Cardapio --->
+     <div class="container">
+     	<!--- Combos --->
+     	<div class="combos container" id="combos">
+     	<h2>Combos</h2>
+     		<div id="roque_grande" class="combo">
+     			<div class="row">
+     				<div class="col-2">
+     				<button class=" botao btn btn-success btn-lg btn-block" onclick="acrecentar_roque_grande()">+</button>
+					<div class="quantidade"><Label id="qt_roque_grande">0</Label></div>
+     				<button class="botao btn btn-success btn-lg btn-block" onclick="diminuir_roque_grande()">-</button>
+     			</div>
+     			<div class="col">
+     				<h3>Roque Grande</h3>
+     				<h5>(Hambúrguer +Batata+ Mini lata)</h5>
+     				<p>Pão de hambúrguer, maionese de alho, alface, tomate, cebola roxa, blend bovino (140g), molho 4 queijos e queijo prato.</p>
+     				<div id="preco" class="preco">
+     					R$ 22,00
+     				</div>
+     			</div>
+     			</div>
+     		</div>
+     		<div id="roque_pequeno" class="combo">
+     			<div class="row">
+     				<div class="col-2">
+     				<button class=" botao btn btn-success btn-lg btn-block" onclick="acrecentar_roque_pequeno()">+</button>
+					<div class="quantidade"><Label id="qt_roque_pequeno">0</Label></div>
+     				<button class="botao btn btn-success btn-lg btn-block" onclick="diminuir_roque_pequeno()">-</button>
+     			</div>
+     			<div class="col">
+     				<h3>Roque Pequeno</h3>
+     				<h5>(Hambúrguer + Batata + Mini lata)</h5>
+     				<p>Pão de hambúrguer, maionese Tradicional, alface, tomate, picles, blend bovino(140g), molho 4queijos, e queijo muçarela.)</p>
+     				<div id="preco" class="preco">
+     					R$ 20,00
+     				</div>
+     			</div>
+     			</div>
+     		</div>
+     	</div>
+     	<!--- Especiais --->
+     	<div id="especiais">
+     		<h2>Especiais</h2>
+     		<div class="mate">
+     			<div class="row especial-mate">
+     			<div class="col">
+					<h3>Xeque Mate</h3>
+     				<p>Pão de hambúrguer, maionese Artesanal, alface, tomate, cebola roxa, 2blend bovinos (140g cada), molho 4queijos, muçarela, molho de cheddar, queijo prato, molho BBQ do chef e bacon.</p>
+     				<p class="preco">
+     					R$ 25,00
+					</p>
+     			</div>
+     			<div class="col-2">
+     				<button class=" botao btn btn-success btn-lg btn-block" onclick="acrecentar_xeque_mate()">+</button>
+					<div class="quantidade especial"><Label id="qt_xeque_mate">0</Label></div>
+     				<button class="botao btn btn-success btn-lg btn-block" onclick="diminuir_xeque_mate()">-</button>
+     			</div>
+     			</div>
+     		</div>
+     		<div class="mate">
+     		  <div class="row especial-mate">
+     			<div class="col">
+					<h3>Mão do Rei</h3>
+     				<p>Pão de brioche Maionese especial, alface tomate cebola roxa, bland bovino 140g queijo prato, cheddar e bacon.</p>
+     				<p class="preco">
+     					R$ 18,00
+					</p>
+     			</div>
+     			<div class="col-2">
+     				<button class=" botao btn btn-success btn-lg btn-block" onclick="acrecentar_mao_do_rei()">+</button>
+					<div class="quantidade especial"><Label id="qt_mao_do_rei">0</Label></div>
+     				<button class="botao btn btn-success btn-lg btn-block" onclick="diminuir_mao_do_rei()">-</button>
+     			</div>
+     			</div>
+     		</div>
+     		<div class="mate">
+     		  <div class="row especial-mate">
+     			<div class="col">
+					<h3>Captura Especial</h3>
+     				<p>Pão de hambúrguer, maionese de ervas finas e limão siciliano, mix de folha (alface e rúcula), milho, tomate, blend de frango, queijo mussarela.</p>
+     				<p class="preco">
+     					R$ 17,00
+					</p>
+     			</div>
+     			<div class="col-2">
+     				<button class=" botao btn btn-success btn-lg btn-block" onclick="acrecentar_captura_especial()">+</button>
+					<div class="quantidade especial"><Label id="qt_captura_especial">0</Label></div>
+     				<button class="botao btn btn-success btn-lg btn-block" onclick="diminuir_captura_especial()">-</button>
+     			</div>
+     			</div>
+     		</div>
+     	</div>
+     	<!--- Bebidas --->
+     	<div id="bebidas">
+     		<h2>Bebidas</h2>
+     		
+     		<div class="row">
+     		<div class="col-4">
+     			<img src="https://img.icons8.com/cotton/180/000000/soda-bottle.png"/>
+     		</div>
+     		 <div class="col-8">
+     		 <form name="bebida">
+     			<input class="form-control" type="number" min="0" name="coca"><label class="btn-block"> Coca Cola 2l R$8,00</label> <br>
+     			<input class="form-control" type="number" min="0" name="mineiro"><label class="btn-block"> Mineiro 2l R$6,00</label> <br>
+     			<input class="form-control" type="number" min="0" name="mini_lata"><label class="btn-block"> Mini-Lata R$3,00</label> <br>
+     		</form>
+     		</div>
+     		</div>
+     	</div>
+     	<!--- Batata --->
+     	<div class="burguer progress-bar-striped bg-warning" id="batata">
+     			<div class="row">
+     			   <div class="col-2">
+     			   	<img class="ico-burguer" src="https://img.icons8.com/officexs/200/000000/french-fries.png">
+     			   </div>
+     				<div class="produto col-8">
+     					<h2>Batata</h2><br><br>
+     					<h2>R$5,00</h2>
+     				</div>
+     				<div class="col-2">
+     					<button class=" botao btn btn-success btn-lg btn-block" onclick="acrecentar_batata()">+</button>
+						<div class="quantidade"><Label id="qt_batata">0</Label></div>
+     					<button class="botao btn btn-success btn-lg btn-block" onclick="diminuir_batata()">-</button>
+     			</div>
+     			</div>
+     	</div>
+     		<!--- Finalização do Pedido --->
+     		<br>
+     		<div class="row">
+     			<a class="col btn btn-primary btn-lg" href="#resumo" onclick="resumo()">Ver Pedido</a>
+     			<a class="col btn btn-danger btn-lg" href="#resumo" onclick="recarregar()">Corrigir</a>
+     		</div>
+     	
+     	<div class="pedido">
+     	Pedido
+     		<div class="resumo" id="resumo"></div>
+     		<input id="cliente" type="text" placeholder="Digite o seu nome" class="btn-block">
+     		<input id="endereco" type="text" placeholder="Digite seu endereço completo" class="btn-block">
+     		<input onclick="fazer_pedido()" type="button" value="Realizar Pedido" class="btn btn-success btn-block btn-lg">
+     	</div>
+     </div>
+     <!--- Contato --->
+     <h3>Contato</h3>
+     <div class="row">
+     	<div class="col">
+     	<a href="https://api.whatsapp.com/send?phone=5564996242237" target="_blank"><img src="https://img.icons8.com/officexs/64/000000/whatsapp.png"/></a>
+     	</div>
+     	<div class="col">
+     	<a href="https://www.instagram.com/tabuleiroburguer/"><img src="https://img.icons8.com/officexs/64/000000/instagram-new.png"/></a>
+     	</div>
+     </div>
+     <!--- Creditos --->
+     <div class="creditos row">
+     <div class="col">
+     	<a href="https://icons8.com.br/" target="_blank"><img src="https://img.icons8.com/nolan/32/icons8-new-logo.png"/> Icones By Icons8</a>
+     </div>
+     <div class="col">
+     	<a href="https://api.whatsapp.com/send?phone=5564999356804" target="_blank"><img src="https://img.icons8.com/nolan/32/whatsapp.png"/>Desenvolvido por Adalto Alexandre Pereira Sobrinho©</a>
+     </div>
+     </div>
+	</body>
+	<footer>
+		<script type="text/javascript">
+			var peao = 0;
+			var torre = 0;
+			var cavalo = 0;
+			var bispo = 0;
+			var rainha = 0;
+			var rei = 0;
+			var roque_grande = 0;
+			var roque_pequeno = 0;
+			var xeque_mate = 0;
+			var mao_do_rei = 0;
+			var captura_especial = 0;
+			var batata = 0;
+			function acrecentar_peao()
+			{
+				peao ++;
+				document.getElementById("qt_peao").innerHTML=peao;
+			}
+			function diminuir_peao()
+			{
+				peao --;
+				if(peao<=0)
+					{
+						peao = 0;
+						document.getElementById("qt_peao").innerHTML=0;
+					}else
+						{
+							document.getElementById("qt_peao").innerHTML=peao;
+						}
+			}
+			function acrecentar_torre()
+			{
+				torre ++;
+				document.getElementById("qt_torre").innerHTML=torre;
+			}
+			function diminuir_torre()
+			{
+				torre --;
+				if(torre<=0)
+					{
+						torre = 0;
+						document.getElementById("qt_torre").innerHTML=0;
+					}else
+						{
+							document.getElementById("qt_torre").innerHTML=torre;
+						}
+			}
+			function acrecentar_cavalo()
+			{
+				cavalo ++;
+				document.getElementById("qt_cavalo").innerHTML=cavalo;
+			}
+			function diminuir_cavalo()
+			{
+				cavalo --;
+				if(cavalo<=0)
+					{
+						cavalo = 0;
+						document.getElementById("qt_cavalo").innerHTML=0;
+					}else
+						{
+							document.getElementById("qt_cavalo").innerHTML=cavalo;
+						}
+			}
+			function acrecentar_bispo()
+			{
+				bispo ++;
+				document.getElementById("qt_bispo").innerHTML=bispo;
+			}
+			function diminuir_bispo()
+			{
+				bispo --;
+				if(bispo<=0)
+					{
+						bispo = 0;
+						document.getElementById("qt_bispo").innerHTML=0;
+					}else
+						{
+							document.getElementById("qt_bispo").innerHTML=bispo;
+						}
+			}
+			function acrecentar_rainha()
+			{
+				rainha ++;
+				document.getElementById("qt_rainha").innerHTML=rainha;
+			}
+			function diminuir_rainha()
+			{
+				rainha --;
+				if(rainha<=0)
+					{
+						rainha = 0;
+						document.getElementById("qt_rainha").innerHTML=0;
+					}else
+						{
+							document.getElementById("qt_rainha").innerHTML=rainha;
+						}
+			}
+			function acrecentar_rei()
+			{
+				rei ++;
+				document.getElementById("qt_rei").innerHTML=rei;
+			}
+			function diminuir_rei()
+			{
+				rei --;
+				if(rei<=0)
+					{
+						rainha = 0;
+						document.getElementById("qt_rei").innerHTML=0;
+					}else
+						{
+							document.getElementById("qt_rei").innerHTML=rei;
+						}
+			}
+			function acrecentar_roque_grande()
+			{
+				roque_grande ++;
+				document.getElementById("qt_roque_grande").innerHTML=roque_grande;
+			}
+			function diminuir_roque_grande()
+			{
+				roque_grande --;
+				if(roque_grande<=0)
+					{
+						roque_grande = 0;
+						document.getElementById("qt_roque_grande").innerHTML=0;
+					}else
+						{
+							document.getElementById("qt_roque_grande").innerHTML=roque_grande;
+						}
+			}
+			function acrecentar_roque_pequeno()
+			{
+				roque_pequeno ++;
+				document.getElementById("qt_roque_pequeno").innerHTML=roque_pequeno;
+			}
+			function diminuir_roque_pequeno()
+			{
+				roque_pequeno --;
+				if(roque_pequeno<=0)
+					{
+						roque_pequeno = 0;
+						document.getElementById("qt_roque_pequeno").innerHTML=0;
+					}else
+						{
+							document.getElementById("qt_roque_pequeno").innerHTML=roque_pequeno;
+						}
+			}
+			function acrecentar_xeque_mate()
+			{
+				xeque_mate ++;
+				document.getElementById("qt_xeque_mate").innerHTML=xeque_mate;
+			}
+			function diminuir_xeque_mate()
+			{
+				xeque_mate --;
+				if(xeque_mate<=0)
+					{
+						xeque_mate = 0;
+						document.getElementById("qt_xeque_mate").innerHTML=0;
+					}else
+						{
+							document.getElementById("qt_xeque_mate").innerHTML=xeque_mate;
+						}
+			}
+			function acrecentar_mao_do_rei()
+			{
+				mao_do_rei ++;
+				document.getElementById("qt_mao_do_rei").innerHTML=mao_do_rei;
+			}
+			function diminuir_mao_do_rei()
+			{
+				mao_do_rei --;
+				if(mao_do_rei<=0)
+					{
+						mao_do_rei = 0;
+						document.getElementById("qt_mao_do_rei").innerHTML=0;
+					}else
+						{
+							document.getElementById("qt_mao_do_rei").innerHTML=mao_do_rei;
+						}
+			}
+			function acrecentar_captura_especial()
+			{
+				captura_especial ++;
+				document.getElementById("qt_captura_especial").innerHTML=captura_especial;
+			}
+			function diminuir_captura_especial()
+			{
+				captura_especial --;
+				if(captura_especial<=0)
+					{
+						captura_especial = 0;
+						document.getElementById("qt_captura_especial").innerHTML=0;
+					}else
+						{
+							document.getElementById("qt_captura_especial").innerHTML=captura_especial;
+						}
+			}
+			function acrecentar_batata()
+			{
+				batata ++;
+				document.getElementById("qt_batata").innerHTML=batata;
+			}
+			function diminuir_captura_especial()
+			{
+				batata --;
+				if(batata<=0)
+					{
+						batata = 0;
+						document.getElementById("qt_batata").innerHTML=0;
+					}else
+						{
+							document.getElementById("qt_batata").innerHTML=batata;
+						}
+			}
+			function resumo()
+			{
+				var total=0;
+				var salvo;
+				if(peao > 0)
+					{
+						total = total + peao*12;
+						salvo = document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML=salvo +"\n"+ peao+" Peão de R$12,00, ";
+					}
+				if(torre > 0)
+					{
+						total = total + torre*16;
+						salvo = document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML= salvo +"\n"+ torre+" Torre de R$16,00, ";
+					}
+				if(cavalo > 0)
+					{
+						total = total + cavalo*17;
+						salvo = document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML= salvo +"\n"+ cavalo+" Cavalo de R$17,00, ";
+					}
+				if(bispo > 0)
+					{
+						total = total + bispo*19;
+						salvo = document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML= salvo +"\n"+ bispo+" Bispo de R$19,00, ";
+					}
+				if(rainha > 0)
+					{
+						total = total + rainha*20;
+						salvo = document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML= salvo +"\n"+ rainha+" Rainha de R$20,00, ";
+					}
+				if(rei > 0)
+					{
+						total = total + rei*20;
+						salvo = document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML= salvo +"\n"+ rei+" Rei de R$20,00, ";
+					}
+				if(roque_grande > 0)
+					{
+						total = total + roque_grande*22;
+						salvo = document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML= salvo +"\n"+ roque_grande+" Roque Grande de R$22,00, ";
+					}
+				if(roque_pequeno > 0)
+					{
+						total = total + roque_pequeno*20;
+						salvo = document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML= salvo +"\n"+ roque_pequeno+" Roque Pequeno de R$20,00, ";
+					}
+				if(xeque_mate > 0)
+					{
+						total = total + xeque_mate*25;
+						salvo = document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML= salvo +"\n"+ xeque_mate+" Xeque Mate de R$25,00, ";
+					}
+				if(mao_do_rei > 0)
+					{
+						total = total + mao_do_rei*18;
+						salvo = document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML= salvo +"\n"+ mao_do_rei+" Mão do Rei de R$18,00, ";
+					}
+				if(captura_especial > 0)
+					{
+						total = total + captura_especial*17;
+						salvo = document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML= salvo +"\n"+ captura_especial+" Captura Especial de R$17,00, ";
+					}
+				if(bebida.coca.value>0)
+					{
+						total = total + bebida.coca.value*8;
+						salvo=document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML=salvo+"\n"+bebida.coca.value+"Coca Cola 2l de R$8,00";
+					}
+				if(bebida.mineiro.value>0)
+					{
+						total = total + bebida.mineiro.value*6;
+						salvo=document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML=salvo+"\n"+bebida.mineiro.value+"Mineiro 2l de R$6,00";
+					}
+				if(bebida.mini_lata.value>0)
+					{
+						total = total + bebida.mini_lata.value*3;
+						salvo=document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML=salvo+"\n"+bebida.mini_lata.value+"Mini Lata 2l de R$3,00";
+					}
+				if(batata > 0)
+					{
+						total = total + batata*5;
+						salvo = document.getElementById("resumo").innerHTML;
+						document.getElementById("resumo").innerHTML= salvo +"\n"+ batata+" Batata de R$5,00, ";
+					}
+				salvo = document.getElementById("resumo").innerHTML;
+				document.getElementById("resumo").innerHTML = salvo + "\n" + "Total = R$"+total+",00"
+			}
+			function fazer_pedido()
+			{
+				if(document.getElementById("resumo").innerHTML=="")
+					{
+						alert("Por favor, clique primeiro em VER PEDIDO");
+					}else
+					{
+					  if(document.getElementById("cliente").value == "" || document.getElementById("endereco").value == "")
+					  {
+					  	alert("Campo do SEU NOME e ENDEREÇO precisam ser preenchidos");
+					  }
+					  else
+					  {
+					  	var cliente = document.getElementById("cliente").value;
+					  	var endereco = document.getElementById("endereco").value;
+					  	var celular = "+5564999356804";
+  					  	var texto = document.getElementById("resumo").innerHTML;
+  					  	texto = window.encodeURIComponent(texto);
+					  	window.open("https://api.whatsapp.com/send?phone=" + celular + "&text=" + texto+ "%0A"+ cliente + "%0A" + endereco, "_blank");
+					  }
+				}
+			}
+			function recarregar()
+			{
+				document.getElementById("resumo").innerHTML="";
+			}
+		</script>
+	</footer>
+</html>
